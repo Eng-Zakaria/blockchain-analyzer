@@ -1,0 +1,7 @@
+# 1. Start Spark cluster (local mode for testing)
+export PYSPARK_PYTHON=$(which python)
+spark-submit --packages graphframes:graphframes:0.8.2-spark3.2-s_2.12 \
+    src/spark/app.py
+
+# 2. In another terminal: Stream live data
+python scripts/etl/web3_connector.py --start-block 19200000

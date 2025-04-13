@@ -1,0 +1,120 @@
+### Python ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environment
+venv/
+ENV/
+env/
+.benv/
+pyvenv.cfg
+
+### Data Files ###
+data/raw/
+data/processed/
+*.csv
+*.json
+*.parquet
+*.db
+*.sqlite
+*.avro
+*.feather
+
+### Secrets ###
+.env
+*.env.*
+*.key
+*.pem
+*.cert
+credentials.json
+config/private/
+secrets/
+
+### IDE ###
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# PyCharm
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+### Local Development ###
+.env.local
+.env.development
+.env.test
+.env.production.local
+
+### Logs ###
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+### Build ###
+dist/
+build/
+out/
+target/
+
+### Testing ###
+.coverage
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+
+### OS ###
+# Mac
+.DS_Store
+
+# Linux
+*~
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+### Docker ###
+docker-compose.override.yml
+
+### Spark ###
+derby.log
+metastore_db/
+spark-warehouse/
+
+### Special Cases ###
+# Project-specific exclusions
+notebooks/exploration-*.ipynb
+scratch/
+temp/
+tmp/
