@@ -32,9 +32,11 @@ pyvenv.cfg
 ### Data Files ###
 data/raw/
 data/processed/
+data/etl/
 *.csv
 *.json
 *.parquet
+*.crc
 *.db
 *.sqlite
 *.avro
