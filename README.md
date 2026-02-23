@@ -11,16 +11,9 @@ This project demonstrates a **hybrid architecture** for blockchain analytics, im
 ## 🏗️ Architecture
 
 ```
-┌─────────────────┐    ┌──────────────┐    ┌─────────────────┐    ┌─────────────┐
-│   Blockchain   │───▶│   ETL        │───▶│   Neo4j       │───▶│   Kibana    │
-│   Data (Infura)│    │   Pipeline    │    │   Graph DB     │    │ Dashboard  │
-└─────────────────┘    └──────────────┘    └─────────────────┘    └─────────────┘
-                              │                           │
-                              ▼                           ▼
-                       ┌──────────────┐         ┌──────────────┐
-                       │   PySpark    │         │ Performance  │
-                       │   Analytics   │         │ Comparison  │
-                       └──────────────┘         └──────────────┘
+Blockchain Data → Spark ETL → Elasticsearch → Kibana Dashboard
+                      ↓
+                   Neo4j Graph ← Performance Testing
 ```
 
 ## 🚀 Key Features
@@ -233,9 +226,6 @@ docker-compose logs -f
 4. Push branch: `git push origin feature/amazing-feature`
 5. Open Pull Request
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
