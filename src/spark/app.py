@@ -1,7 +1,7 @@
-spark = SparkSession.builder \
-    .appName("BlockchainETL") \
-    .config("spark.sql.shuffle.partitions", "200") \
-    .config("spark.executor.memory", "8g") \
-    .config("spark.driver.memory", "4g") \
-    .config("spark.executor.cores", "4") \
-    .getOrCreate()
+from pyspark.sql import SparkSession
+from src.core.spark_session import create_spark_session
+
+def create_spark_app():
+    """Main Spark application entry point"""
+    spark = create_spark_session("BlockchainETL")
+    return spark

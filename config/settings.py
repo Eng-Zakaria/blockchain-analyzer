@@ -1,42 +1,33 @@
 
 
-# # config/settings.py
-# import os
-# from dotenv import load_dotenv
-
-# load_dotenv()
-
-# class Config:
-#     # Blockchain
-#     INFURA_KEY = os.getenv("")
-#     ETHERSCAN_KEY = os.getenv("")
-    
-#     # Neo4j
-#     NEO4J_URI = os.getenv("NEO4J_URI", "bolt://localhost:7687")
-#     NEO4J_USER = os.getenv("NEO4J_USER", "neo4j")
-#     NEO4J_PASS = os.getenv("NEO4J_PASS", "password")
-    
-#     # Spark
-#     SPARK_MASTER = os.getenv("SPARK_MASTER", "local[*]")
-
 import os
 from pathlib import Path
-from pydantic import BaseSettings
 
-class Settings(BaseSettings):
+class Settings:
     # Infura Configuration
-    INFURA_API_KEY: str
+    INFURA_API_KEY: str = os.getenv("INFURA_API_KEY", "")
     INFURA_URL: str = "https://mainnet.infura.io/v3/"
     
     # Etherscan Configuration
-    ETHERSCAN_API_KEY: str = ""
+    ETHERSCAN_API_KEY: str = os.getenv("ETHERSCAN_API_KEY", "")
+    
+    # Neo4j Configuration
+    NEO4J_URI: str = os.getenv("NEO4J_URI", "bolt://localhost:7687")
+    NEO4J_USER: str = os.getenv("NEO4J_USER", "neo4j")
+    NEO4J_PASSWORD: str = os.getenv("NEO4J_PASSWORD", "password")
+    
+    # Spark Configuration
+    SPARK_MASTER: str = os.getenv("SPARK_MASTER", "local[*]")
     
     # Chain Settings
-    CHAIN_ID: int = 1
+    CHAIN_ID: int = int(os.getenv("CHAIN_ID", "1"))
+    NETWORK: str = os.getenv("NETWORK", "mainnet")
     
     # Path Configuration
     DATA_DIR: Path = Path(__file__).resolve().parent.parent / "data"
-    
-    class Config:
-        env_file = Path(__file__).resolve().parent.parent / ".env"
-        env_file_encoding = 'utf-8'
+    ETL_BRONZE_PATH: Path = Path(__file__).resolve().parent.parent / "etl" / "bronze"
+    ETL_SILVER_PATH: Path = Path(__file__).resolve().parent.parent / "etl" / "silver"
+    ETL_GOLD_PATH: Path = Path(__file__).resolve().parent.parent / "etl" / "gold"
+
+# Global settings instance
+settings = Settings()
